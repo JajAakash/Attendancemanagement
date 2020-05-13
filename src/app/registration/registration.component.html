@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+      <div *ngIf="flag==true"  class="alert alert-success">
+          <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="registerForm">
+
+            <div class="col form-group">
+              <div class="active-purple-4 mb-4">
+                    <i class="fa fa-male fa-lg icon" aria-hidden="true"></i>
+                    <input class="form-control" type="name" placeholder="Full name" formControlName="name" aria-label="Search" style="padding-left: 40px;">
+                    <div *ngIf="(registerForm.controls['name'].errors && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched))" class="red">
+                        <div *ngIf="registerForm.controls.name.errors.required">Enter your Name</div>
+                    </div>
+              </div>
+                     
+            </div>
+            <div class="col form-group">
+              <div class="active-purple-4 mb-4">
+                  <i class="fa fa-user fa-lg icon" aria-hidden="true"></i>
+                  <input class="form-control" type="email" placeholder="Email address" formControlName="emailId" aria-label="Search" style="padding-left: 40px;">
+                  <div *ngIf="(registerForm.controls['emailId'].errors && (registerForm.controls['emailId'].dirty || registerForm.controls['emailId'].touched))" class="red">
+                      <div *ngIf="registerForm.controls.emailId.errors.required">Enter your email</div>
+                      <div *ngIf="registerForm.controls.emailId.errors.pattern">Email id is not valid</div>
+                  </div>
+              </div>                           
+            </div>
+
+            <div class="col form-group">
+              <div class="active-purple-4 mb-4">
+                  <i class="fa fa-lock fa-lg icon" aria-hidden="true"></i>
+                  <input class="form-control" type="password" placeholder="password" formControlName="password" aria-label="Search" style="padding-left: 40px;">
+                  
+                  <div *ngIf="(registerForm.controls['password'].errors && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched))" class="red">
+                      <div *ngIf="registerForm.controls.password.errors.required">Enter password</div>
+                      <div *ngIf="registerForm.controls.password.errors.pattern">password should contain 8 words and start with a capital character and should not havespecial character</div>
+                  </div>
+              </div>                     
+            </div>
+
+            <div class="col form-group">
+              <div class="active-purple-4 mb-4">
+                    <i class="fa fa-birthday-cake fa-lg icon" aria-hidden="true"></i>
+                    <input class="form-control" type="date" placeholder="Date of birth" formControlName="dob" aria-label="Search" style="padding-left: 40px;">
+                    <div *ngIf="(registerForm.controls['dob'].errors && (registerForm.controls['dob'].dirty || registerForm.controls['dob'].touched))" class="red">
+                        <div *ngIf="registerForm.controls.dob.errors.required">Choose date of birth</div>
+                    </div>
+              </div>
+            </div>
+            
+            <hr>
+            
+            <button class="btn btn-lg btn-loc btn-block text-uppercase" type="submit"  [disabled]="!registerForm.valid" (click)="register()">REGISTER</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>      
+

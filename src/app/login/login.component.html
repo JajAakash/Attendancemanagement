@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="loginForm">
+              <div class="col form-group">
+                <div class="active-purple-4 mb-4">
+                    <i class="fa fa-user fa-lg icon" aria-hidden="true"></i>
+                    <input class="form-control" type="number" placeholder="Employee code" formControlName="employeeId" aria-label="Search" style="padding-left: 40px;">
+                    <div *ngIf="(loginForm.controls['employeeId'].errors && (loginForm.controls['employeeId'].dirty || loginForm.controls['employeeId'].touched))" class="red">
+                        <div *ngIf="loginForm.controls.employeeId.errors.required">Enter your Employee code</div>
+                    </div>
+                </div>                           
+              </div>
+  
+              <div class="col form-group">
+                <div class="active-purple-4 mb-4">
+                    <i class="fa fa-lock fa-lg icon" aria-hidden="true"></i>
+                    <input class="form-control" type="password" placeholder="password" formControlName="password" aria-label="Search" style="padding-left: 40px;">
+                    <div *ngIf="(loginForm.controls['password'].errors && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched))" class="red">
+                        <div *ngIf="loginForm.controls.password.errors.required">Enetr your password</div>
+                    </div>
+                </div>                     
+              </div>
+  
+            <button class="btn btn-lg btn-loc btn-block text-uppercase" type="submit" [disabled]="!loginForm.valid" (click)="login()">LOG IN</button>
+              <hr>
+              <div class="newuser"><label class="label">Or New user ?</label></div>
+              <button class="btn btn-lg btn-loc btn-block text-uppercase" type="submit" (click)="navigate()">REGISTER</button>
+            </form>
+          </div>
+
+          <!-- <div *ngIf="flag && successMsg">
+              <div  class="alert alert-warning alert-dismissible fade show" role="alert" >
+                  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+          </div> -->
+
+
+
+
+        </div>
+
+      </div>
+  
+    </div>
+  </div>      
+  
+  

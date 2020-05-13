@@ -1,0 +1,79 @@
+<div class="container-fluid col-lg-10" >
+    <div class="row">
+
+        <div class="card col-md-4">
+            <div class="card-body">
+                <h4 class="ed-24 ed-black ed-light display-flex ">Employee Details</h4>
+                <hr>
+                <div id="emp">
+                        <div>Email :&nbsp;&nbsp;<span>{{empDetails[empDetails.length-1]?.emailId}}</span></div>
+                        <div>Employee Name :&nbsp;&nbsp;<span>{{empDetails[empDetails.length-1]?.name}}</span></div>
+                        <div>Employee Code :&nbsp;&nbsp;<span>{{empDetails[empDetails.length-2]?.empId}}</span></div>
+                </div>
+
+                <div class="btn-block">
+                        <div class="card" style="width: 92%; margin-bottom: 5%">
+                            <div class="card-body">
+                                    <form [formGroup]="updateattendanceForm">
+                                        <label class="labtxt" for="formGroupExampleInput">Choose Date *</label>
+                                        <input type="date" class="form-control form-control-sm ta-cl active-purple-4" placeholder="" formControlName="date">
+                                        
+                                        <div class="mar">
+                                            <label class="labtxt mar" for="formGroupExampleInput">Status *</label>
+                                            <div>
+                                                <input type="radio" value="Present" formControlName="availabilty"> Present
+                                                <input type="radio" value="Not present" formControlName="availabilty"> Not Present
+                                            </div>    
+                                                
+                                        </div>
+
+                                        <button type="button" class="btn mar btn-len btn-outline-info" type="submit" (click)="updateEmployee()">Manage Attendance</button>
+                                    </form>
+                            </div>
+                            
+                        </div>
+                        <button type="button" class="btn btn-len btn-outline-info" type="submit" (click)="update()">Update Employee</button>
+                        <button type="button" class="btn btn-len btn-outline-danger" type="submit" (click)="removeEmployee()">Remove Employee</button>
+                        <button type="button" class="btn btn-len btn-outline-danger" type="submit" (click)="removeEmployeeAttendance()">Delete Attendance</button>
+                        <button type="button" class="btn btn-len btn-outline-success" type="submit" (click)="downloadTable()">Download Records</button>
+                        <button type="button" class="btn btn-len btn-outline-success" type="submit" (click)="logout()">Logout</button>
+                        
+                        
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="card col-md-8">
+            <div class="card-body">
+                <div class="ed-al">
+                    <h4 class="ed-24 ed-black ed-light display-flex ">Attendance Record</h4><hr>
+                </div>
+
+                <div class="table-responsive" id="attendance-table">
+                        <table class="table table-hover table-bordered" style="text-align: center">
+                            <thead>
+                              <tr>  
+                                <th scope="col" style="width: 10%">Date</th>
+                                <th scope="col" style="width: 10%">Day</th>
+                                <th scope="col" style="width: 10%">In-Time</th>
+                                <th scope="col" style="width: 10%">Out-Time</th>
+                                <th scope="col" style="width: 10%">Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              
+                              <tr *ngFor="let item of empDetails;">
+                                <td>{{item?.date}}</td>
+                                <td>{{item?.day}}</td>
+                                <td>{{item?.inTime}}</td>
+                                <td>{{item?.outTime}}</td>
+                                <td>{{item?.availabilty}}</td>  
+                              </tr>
+                          </tbody>
+                        </table>
+                      </div>
+            </div>
+        </div>
+    </div>
+</div>

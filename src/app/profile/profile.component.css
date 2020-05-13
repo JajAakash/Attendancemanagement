@@ -1,0 +1,40 @@
+.active-purple-4 input[type=date]:focus:not([readonly]) {
+    border: 1px solid rgba(129,53,136,.98);
+    box-shadow: 0 0 0 1px rgba(129,53,136,.98);
+}
+
+.ed-24 {
+    font-size: 1.5rem;
+    line-height: 1.33333;
+}
+.ed-light {
+    font-weight: 400;
+}
+.ed-black {
+    color: rgba(0,0,0,.9);
+}
+.display-flex {
+    display: flex!important;
+}
+.ed-al{
+    text-align: center;
+    align-content: center;
+    padding-right: 50ex
+}
+.btn-len{
+    width: 92%;
+    margin-bottom: 5%;
+}
+.btn-block{
+    margin-top: 12%;
+}
+.mar{
+    margin-top:3%;
+}
+.icon{
+    position :absolute;
+    left:15px;
+    top: 5px;
+    padding: 9px 8px;
+    color: #969592 
+  }

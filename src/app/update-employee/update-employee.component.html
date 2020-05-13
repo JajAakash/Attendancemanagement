@@ -1,0 +1,50 @@
+<div class="container">
+        <div class="row">
+          <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <form [formGroup]="employeeForm">
+      
+                  <div class="col form-group">
+                    <div class="active-purple-4 mb-4">
+                          <i class="fa fa-male fa-lg icon" aria-hidden="true"></i>
+                          <input class="form-control" type="name" placeholder="Full name" formControlName="name" aria-label="Search" style="padding-left: 40px;">
+                          <div *ngIf="(employeeForm.controls['name'].errors && (employeeForm.controls['name'].dirty || employeeForm.controls['name'].touched))" class="red">
+                              <div *ngIf="employeeForm.controls.name.errors.required">Enter your name</div>
+                              
+                          </div>
+                    </div>
+                   
+                           
+                  </div>
+                  <div class="col form-group">
+                    <div class="active-purple-4 mb-4">
+                        <i class="fa fa-lock fa-lg icon" aria-hidden="true"></i>
+                        <input class="form-control" type="password" placeholder="password" formControlName="password" aria-label="Search" style="padding-left: 40px;">
+                        <div *ngIf="(employeeForm.controls['password'].errors && (employeeForm.controls['password'].dirty || employeeForm.controls['password'].touched))" class="red">
+                            <div *ngIf="employeeForm.controls.password.errors.required">Enter password</div>
+                            <div *ngIf="employeeForm.controls.password.errors.pattern">password should contain 8 words and start with a capital character and should not havespecial character</div>
+                        </div>
+                    </div>                     
+                  </div>
+      
+                  <div class="col form-group">
+                    <div class="active-purple-4 mb-4">
+                          <i class="fa fa-birthday-cake fa-lg icon" aria-hidden="true"></i>
+                          <input class="form-control" type="date" placeholder="Date of birth" formControlName="dob" aria-label="Search" style="padding-left: 40px;">
+                          <div *ngIf="(employeeForm.controls['dob'].errors && (employeeForm.controls['dob'].dirty || employeeForm.controls['dob'].touched))" class="red">
+                              <div *ngIf="employeeForm.controls.dob.errors.required">Enter date of birth</div>
+                          </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-lg btn-loc btn-block text-uppercase" type="submit" [disabled]="!employeeForm.valid" (click)="update()">Update Employee</button>
+      
+                </form>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>      
+      
+      
